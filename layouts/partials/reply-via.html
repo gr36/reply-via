@@ -1,0 +1,28 @@
+<div class="reply_via_buttons">
+    {{- if $.Site.Params.reply_masto }}
+    <div class="reply_via_mastodon">
+        {{ with .Params.mastodon.id }}
+            <a href="https://{{ $.Params.mastodon.hostname }}/@{{ $.Params.mastodon.username }}/{{ .Params.mastodon.id }}">{{- $.Site.Params.masto_icon }} {{- $.Site.Params.masto_text }}</a>
+        {{ end }}
+    </div>
+    {{ end }}
+    {{- if $.Site.Params.reply_threads }}
+    <div class="reply_via_threads">
+        {{ with .Params.threads.url }}
+            <a href="{{ .Params.threads.url }}">{{- $.Site.Params.threads_icon }} {{- $.Site.Params.threads_text }}</a>
+        {{ end }}
+    </div>
+    {{ end }}
+    {{- if $.Site.Params.reply_bluesky }}
+    <div class="reply_via_bluesky">
+        {{ with .Params.threads.url }}
+            <a href="{{ .Params.bluesky.url }}">{{- $.Site.Params.bluesky_icon }} {{- $.Site.Params.bluesky_text }}</a>
+        {{ end }}
+    </div>
+    {{ end }}
+    {{- if $.Site.Params.reply_email }}
+    <div class="reply_via_email">
+        {{ partial "reply-by-email.html" . }}
+    </div>
+    {{ end }}
+</div>

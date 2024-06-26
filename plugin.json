@@ -1,0 +1,58 @@
+{
+    "version": "1.0.0",
+    "title": "Reply Via",
+    "description": "Add buttons to the end of your posts offering options for readers to reply",
+    "fields": [
+        {
+            "field": "params.reply_masto",
+            "label": "Show reply on Mastodon",
+            "type": "boolean"
+          },
+          {
+            "field": "params.masto_icon",
+            "label": "Button Emoji For Mastodon",
+            "placeholder": "❤️"
+          },
+          {
+            "field": "params.masto_text",
+            "label": "Button text For Mastodon",
+            "placeholder": "Reply on Mastodon"
+          },
+        {
+          "field": "params.reply_threads",
+          "label": "Show reply on Threads",
+          "type": "boolean"
+        },
+        {
+            "field": "params.threads_icon",
+            "label": "Button Emoji For Threads",
+            "placeholder": "❤️"
+          },
+          {
+            "field": "params.threads_text",
+            "label": "Button text For Threads",
+            "placeholder": "Reply on Threads"
+          },
+          
+        {
+          "field": "params.reply_bluesky",
+          "label": "Show reply on Bluesky",
+          "type": "boolean"
+        },
+        {
+            "field": "params.bluesky_icon",
+            "label": "Button Emoji For Bluesky",
+            "placeholder": "❤️"
+          },
+          {
+            "field": "params.bluesky_text",
+            "label": "Button text For Bluesky",
+            "placeholder": "Reply on Bluesky"
+          },
+        {
+          "field": "params.reply_email",
+          "label": "Requires Reply via email plugin",
+          "type": "boolean"
+        }
+    ]
+}
