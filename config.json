@@ -2,13 +2,13 @@
     "params": {
       "reply_masto": true,
       "masto_icon": "❤️",
-      "masto_text": true,
+      "masto_text": "Mastodon",
       "reply_threads": true,
       "threads_icon": "❤️",
-      "threads_text": true,
+      "threads_text": "Threads",
       "reply_bluesky": true,
       "bluesky_icon": "❤️",
-      "bluesky_text": true,
+      "bluesky_text": "Bluesky",
       "reply_email": false,
       "reply_microblog": false,
       "reply_via_button": "blue"

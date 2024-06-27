@@ -1,3 +1,4 @@
+{{ $button_colour := $.Site.Params.reply_via_button }}
 <style>
 
 .reply_via_buttons {
@@ -7,9 +8,12 @@
 		border: 1px solid black;
 		border-radius: 8px;
 		padding: 5px;
+	:hover {
+		border: none;
+}
 	}
 	:hover {
-		background: blue;
+		background: {{ $button_colour }};
 		color: white;
 	}
 }
@@ -20,21 +24,21 @@
     {{- if $.Site.Params.reply_masto }}
     {{ with .Params.mastodon.id }}
     <div class="reply_via_mastodon">
-            <a href="https://{{ $.Params.mastodon.hostname }}/@{{ $.Params.mastodon.username }}/{{ .Params.mastodon.id }}">{{- $.Site.Params.masto_icon | safeHTML }}&nbsp;{{- $.Site.Params.masto_text }}</a>
+            <a href="https://{{ $.Params.mastodon.hostname }}/@{{ $.Params.mastodon.username }}/{{ .Params.mastodon.id }}">{{- $.Site.Params.masto_icon | safeHTML }} {{- $.Site.Params.masto_text }}</a>
     </div>
     {{ end }}
     {{ end }}
     {{- if $.Site.Params.reply_threads }}
     {{ with .Params.threads.url }}
     <div class="reply_via_threads">
-            <a href="{{ $.Params.threads.url }}">{{- $.Site.Params.threads_icon | safeHTML }}&nbsp;{{- $.Site.Params.threads_text }}</a>
+            <a href="{{ $.Params.threads.url }}">{{- $.Site.Params.threads_icon | safeHTML }} {{- $.Site.Params.threads_text }}</a>
     </div>
     {{ end }}
     {{ end }}
     {{- if $.Site.Params.reply_bluesky }}
     {{ with .Params.bluesky.url }}
     <div class="reply_via_bluesky">
-            <a href="{{ $.Params.bluesky.url }}">{{- $.Site.Params.bluesky_icon | safeHTML }}&nbsp;{{- $.Site.Params.bluesky_text }}</a>
+            <a href="{{ $.Params.bluesky.url }}">{{- $.Site.Params.bluesky_icon | safeHTML }} {{- $.Site.Params.bluesky_text }}</a>
     </div>
     {{ end }}
     {{ end }}
