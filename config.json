@@ -1,0 +1,17 @@
+{
+    "params": {
+      "reply_masto": true,
+      "masto_icon": "❤️",
+      "masto_text": true,
+      "reply_threads": true,
+      "threads_icon": "❤️",
+      "threads_text": true,
+      "reply_bluesky": true,
+      "bluesky_icon": "❤️",
+      "bluesky_text": true,
+      "reply_email": false,
+      "reply_microblog": false,
+      "reply_via_button": "blue"
+    }
+  }
+

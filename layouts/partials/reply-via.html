@@ -1,24 +1,42 @@
+<style>
+
+.reply_via_buttons {
+	display: flex;
+	gap: 20px;
+	> div {
+		border: 1px solid black;
+		border-radius: 8px;
+		padding: 5px;
+	}
+	:hover {
+		background: blue;
+		color: white;
+	}
+}
+
+</style>
+
 <div class="reply_via_buttons">
     {{- if $.Site.Params.reply_masto }}
+    {{ with .Params.mastodon.id }}
     <div class="reply_via_mastodon">
-        {{ with .Params.mastodon.id }}
-            <a href="https://{{ $.Params.mastodon.hostname }}/@{{ $.Params.mastodon.username }}/{{ .Params.mastodon.id }}">{{- $.Site.Params.masto_icon }} {{- $.Site.Params.masto_text }}</a>
-        {{ end }}
+            <a href="https://{{ $.Params.mastodon.hostname }}/@{{ $.Params.mastodon.username }}/{{ .Params.mastodon.id }}">{{- $.Site.Params.masto_icon | safeHTML }}&nbsp;{{- $.Site.Params.masto_text }}</a>
     </div>
+    {{ end }}
     {{ end }}
     {{- if $.Site.Params.reply_threads }}
+    {{ with .Params.threads.url }}
     <div class="reply_via_threads">
-        {{ with .Params.threads.url }}
-            <a href="{{ .Params.threads.url }}">{{- $.Site.Params.threads_icon }} {{- $.Site.Params.threads_text }}</a>
-        {{ end }}
+            <a href="{{ $.Params.threads.url }}">{{- $.Site.Params.threads_icon | safeHTML }}&nbsp;{{- $.Site.Params.threads_text }}</a>
     </div>
     {{ end }}
+    {{ end }}
     {{- if $.Site.Params.reply_bluesky }}
+    {{ with .Params.bluesky.url }}
     <div class="reply_via_bluesky">
-        {{ with .Params.threads.url }}
-            <a href="{{ .Params.bluesky.url }}">{{- $.Site.Params.bluesky_icon }} {{- $.Site.Params.bluesky_text }}</a>
-        {{ end }}
+            <a href="{{ $.Params.bluesky.url }}">{{- $.Site.Params.bluesky_icon | safeHTML }}&nbsp;{{- $.Site.Params.bluesky_text }}</a>
     </div>
+    {{ end }}
     {{ end }}
     {{- if $.Site.Params.reply_email }}
     <div class="reply_via_email">
@@ -26,7 +44,7 @@
     </div>
     {{ end }}
     {{- if $.Site.Params.reply_microblog }}
-    <div class="reply_via_email">
+    <div class="reply_via_microblog">
         {{ partial "conversation-link.html" . }}
     </div>
     {{ end }}
