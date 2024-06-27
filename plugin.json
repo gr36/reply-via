@@ -53,6 +53,11 @@
           "field": "params.reply_email",
           "label": "Requires Reply via email plugin",
           "type": "boolean"
+        },
+        {
+          "field": "params.reply_microblog",
+          "label": "Requires Conversations plugin",
+          "type": "boolean"
         }
     ]
 }

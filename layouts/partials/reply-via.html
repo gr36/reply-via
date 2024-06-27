@@ -25,4 +25,9 @@
         {{ partial "reply-by-email.html" . }}
     </div>
     {{ end }}
+    {{- if $.Site.Params.reply_microblog }}
+    <div class="reply_via_email">
+        {{ partial "conversation-link.html" . }}
+    </div>
+    {{ end }}
 </div>
