@@ -36,9 +36,9 @@
     {{ end }}
     {{ end }}
     {{- if $.Site.Params.reply_bluesky }}
-    {{ with .Params.bluesky.url }}
+    {{ with .Params.bluesky.link }}
     <div class="reply_via_bluesky">
-            <a href="{{ $.Params.bluesky.url }}">{{- $.Site.Params.bluesky_icon | safeHTML }} {{- $.Site.Params.bluesky_text }}</a>
+            <a href="{{ $.Params.bluesky.link }}">{{- $.Site.Params.bluesky_icon | safeHTML }} {{- $.Site.Params.bluesky_text }}</a>
     </div>
     {{ end }}
     {{ end }}
