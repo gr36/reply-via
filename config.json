@@ -10,7 +10,9 @@
       "bluesky_icon": "↩",
       "bluesky_text": "Bluesky",
       "reply_email": false,
-      "reply_microblog": false,
+      "reply_microblog": true,
+      "mb_icon": "↩",
+      "mb_text": "Micro.blog",
       "reply_via_button": "blue"
     }
   }

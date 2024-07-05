@@ -48,8 +48,29 @@
     </div>
     {{ end }}
     {{- if $.Site.Params.reply_microblog }}
-    <div class="reply_via_microblog">
-        {{ partial "conversation-link.html" . }}
+    <div class="reply_via_microblog" style="display: none;">
+        <i class="fa-brands fa-microblog"></i><a href="{{$home_page_url}}" class="conversation-{{ .Title | urlize }}">{{- $.Site.Params.mb_icon | safeHTML }} {{- $.Site.Params.mb_text }}</a>
     </div>
+    <script>
+        // Function to fetch the homepage URL and update the link
+        function updateHomepageLink() {
+        fetch('https://micro.blog/conversation.js?format=jsonfeed&url={{ .Permalink }}')
+        .then(response => response.json())
+        .then(data => {
+        if (data.home_page_url) {
+        const linkElement = document.querySelector('.reply_via_microblog a');
+        const divElement = document.querySelector('.reply_via_microblog');
+        // Update the link's href
+        linkElement.href = data.home_page_url;
+        // Show the div
+        divElement.style.display = 'block';
+        }
+        });
+        }
+
+        // Call the function to update the link and show the div
+        document.addEventListener('DOMContentLoaded', updateHomepageLink);
+
+    </script>
     {{ end }}
 </div>
